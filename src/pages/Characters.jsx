@@ -7,7 +7,7 @@ import Title from "../components/Title";
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(1);
-  const [info, setInfo] = useState(null); // store pagination info
+  const [info, setInfo] = useState(null); 
   const [filter, setFilter] = useState({
     name: "",
     status: "",
@@ -39,7 +39,7 @@ export default function Characters() {
         );
 
         setCharacters([...favoriteCharacters, ...nonFavoriteCharacters]);
-        setInfo(info); // update pagination info
+        setInfo(info); 
       } catch (error) {
         setCharacters([]);
         setInfo(null);
@@ -56,14 +56,14 @@ export default function Characters() {
       ...prev,
       [name]: value,
     }));
-    setPage(1); // reset to first page when filters change
+    setPage(1); 
   };
 
   return (
     <div className="px-4 py-8">
       <Title title={"Rick & Morty Characters"} />
 
-      {/* filter  */}
+      
       <div className="bg-white p-6 rounded-xl shadow-md mb-10 grid grid-cols-1 md:grid-cols-4 gap-4">
         <input
           type="text"
@@ -95,14 +95,14 @@ export default function Characters() {
         />
       </div>
 
-      {/* Character grid */}
+      
       <div className="grid grid-cols-12 gap-6">
         {characters.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))}
       </div>
 
-      {/* pagination */}
+      
       {info && (
         <div className="mt-12 flex justify-center items-center gap-6">
           <button

@@ -19,7 +19,7 @@ export default function Favorites() {
         `https://rickandmortyapi.com/api/character/${favorites.toString()}`
       );
 
-      // If only one favorite, the API returns an object instead of an array
+    
       const data = Array.isArray(response.data)
         ? response.data
         : [response.data];
@@ -29,7 +29,7 @@ export default function Favorites() {
     fetchData();
   }, []);
 
-  // Handler to remove a character from local state
+  
   const handleRemoveFavorite = (id) => {
     const updated = characters.filter((char) => char.id !== id);
     setCharacters(updated);
